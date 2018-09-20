@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -20,12 +22,16 @@ public class Post {
 	@Lob
 	private String contents;
 
-	public Post(String subject, String contents) {
+	@ManyToOne
+	private User writer;
+
+	public Post(String subject, String contents, User writer) {
 		super();
 		this.subject = subject;
 		this.contents = contents;
+		this.writer = writer;
 	}
-	
+
 	protected Post() {
 		super();
 	}
