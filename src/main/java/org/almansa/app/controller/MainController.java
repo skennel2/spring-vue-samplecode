@@ -61,4 +61,8 @@ public class MainController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
+	@GetMapping("/user/all")
+	public ResponseEntity<List<User>> getAllUsers(){
+		return new ResponseEntity<List<User>>(userService.getAll(), HttpStatus.OK);
+	}	
 }
