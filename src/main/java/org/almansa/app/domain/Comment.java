@@ -1,6 +1,5 @@
 package org.almansa.app.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,10 +14,10 @@ public class Comment {
 	@GeneratedValue
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private User writer;
 
 	@Lob

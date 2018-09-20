@@ -31,20 +31,17 @@ public class MainController {
 	
 	@PostMapping("/post/add")
 	public ResponseEntity<Void> addPost(@ModelAttribute Post post) {
-
 		postService.addPost(post);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@GetMapping("/post/{id}")
 	public ResponseEntity<Post> getById(@PathVariable Long id) {
-
 		return new ResponseEntity<Post>(postService.getById(id).get(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/post/all")
 	public ResponseEntity<List<Post>> getAll() {
-
 		return new ResponseEntity<List<Post>>(postService.getAll(), HttpStatus.OK);
 	}	
 	
