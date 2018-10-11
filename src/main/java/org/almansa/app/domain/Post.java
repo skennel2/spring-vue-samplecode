@@ -25,15 +25,23 @@ public class Post {
 	@ManyToOne
 	private User writer;
 
+	protected Post() {
+		super();
+	}
+	
 	public Post(String subject, String contents, User writer) {
 		super();
 		this.subject = subject;
 		this.contents = contents;
 		this.writer = writer;
 	}
-
-	protected Post() {
+	
+	public Post(Long id, String subject, User writer, String contents) {
 		super();
+		this.id = id;
+		this.subject = subject;
+		this.contents = contents;
+		this.writer = writer;
 	}
 
 	public Long getId() {
