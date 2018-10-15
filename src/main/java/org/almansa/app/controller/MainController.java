@@ -51,15 +51,5 @@ public class MainController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	@PostMapping("/user/add")
-	public ResponseEntity<Void> addUser(@ModelAttribute User user){
-		userService.addUser(user);
-		
-		return new ResponseEntity<Void>(HttpStatus.OK);
-	}
-	
-	@GetMapping("/user/all")
-	public ResponseEntity<List<User>> getAllUsers(){
-		return new ResponseEntity<List<User>>(userService.getAll(), HttpStatus.OK);
-	}	
+
 }

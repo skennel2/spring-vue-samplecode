@@ -3,6 +3,8 @@ package org.almansa.app.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.almansa.app.domain.User;
 import org.almansa.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,6 @@ public class UserService {
 		userRepository.save(user);
 	}
 
-	@Transactional(readOnly = true)
-	public Optional<User> getById(Long id) {
-		return userRepository.findById(id);
-	}
-
 	@Transactional
 	public void deleteById(Long id) {
 		userRepository.deleteById(id);
@@ -38,5 +35,11 @@ public class UserService {
 	@Transactional(readOnly = true)
 	public List<User> getAll() {
 		return userRepository.findAll();
+	}
+	
+	public User getById(Long id) {
+		return userRepository.findById(id).orElseThrow(()->{
+			return new EntityNotFoundException();
+		});
 	}
 }
