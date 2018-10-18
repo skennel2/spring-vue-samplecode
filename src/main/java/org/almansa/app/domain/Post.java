@@ -9,11 +9,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Post {
-
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Post extends EntityBase{
 
 	@Column(nullable = false, length = 30)
 	private String subject;
@@ -36,20 +32,11 @@ public class Post {
 		this.writer = writer;
 	}
 	
-	public Post(Long id, String subject, User writer, String contents) {
+	public Post(String subject, User writer, String contents) {
 		super();
-		this.id = id;
 		this.subject = subject;
 		this.contents = contents;
 		this.writer = writer;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getSubject() {

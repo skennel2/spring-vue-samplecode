@@ -6,11 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-
-	@Id
-	@GeneratedValue
-	private Long id;
+public class User extends EntityBase{
 
 	@Column(nullable = false)
 	private String email;
@@ -26,14 +22,6 @@ public class User {
 
 	protected User() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {

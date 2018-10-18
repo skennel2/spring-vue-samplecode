@@ -8,11 +8,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Comment {
-
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Comment extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
@@ -32,14 +28,6 @@ public class Comment {
 
 	protected Comment() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Post getPost() {
