@@ -1,10 +1,10 @@
-package org.almansa.app.controller;
+package org.almansa.app.web.controller;
 
 import java.util.List;
 
 import org.almansa.app.domain.Post;
 import org.almansa.app.domain.User;
-import org.almansa.app.service.PostService;
+import org.almansa.app.service.post.PostService;
 import org.almansa.app.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

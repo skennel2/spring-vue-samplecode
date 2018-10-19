@@ -1,17 +1,19 @@
 package org.almansa.app.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import org.almansa.app.service.PasswordConverter;
 
 @Entity
-public class User extends EntityBase{
+public class User extends EntityBase {
 
 	@Column(nullable = false)
 	private String email;
 
 	@Column(nullable = false)
+	@Convert(converter = PasswordConverter.class)
 	private String password;
 
 	public User(String email, String password) {

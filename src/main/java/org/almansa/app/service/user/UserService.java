@@ -2,7 +2,6 @@ package org.almansa.app.service.user;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -11,7 +10,6 @@ import org.almansa.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.ObjectUtils;
 
 @Service
 public class UserService {
@@ -56,8 +54,19 @@ public class UserService {
 		}
 		
 		return null;
-	}	
+	}
 	
+	@Transactional(readOnly = true)
+	public boolean checkAuthWithLoginParameter(String email, String password) {
+		User user = this.getByEmail(email);
+		if(user != null) {			
+			return user.getPassword().equals(password);
+		}else {
+			return false;
+		}
+	}
+	
+	@Transactional
 	public void deleteUser(Long id) {
 		userRepository.deleteById(id);
 	}
