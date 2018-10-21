@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import org.almansa.app.service.PasswordConverter;
 
 @Entity
-public class User extends EntityBase {
+public class UserAccount extends EntityBase {
 
 	@Column(nullable = false)
 	private String email;
@@ -16,13 +16,13 @@ public class User extends EntityBase {
 	@Convert(converter = PasswordConverter.class)
 	private String password;
 
-	public User(String email, String password) {
+	public UserAccount(String email, String password) {
 		super();
 		this.email = email;
 		this.password = password;
 	}
 
-	protected User() {
+	protected UserAccount() {
 		super();
 	}
 
