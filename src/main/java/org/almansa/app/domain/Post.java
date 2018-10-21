@@ -19,20 +19,20 @@ public class Post extends EntityBase{
 	private String contents;
 
 	@ManyToOne
-	private User writer;
+	private UserAccount writer;
 
 	protected Post() {
 		super();
 	}
 	
-	public Post(String subject, String contents, User writer) {
+	public Post(String subject, String contents, UserAccount writer) {
 		super();
 		this.subject = subject;
 		this.contents = contents;
 		this.writer = writer;
 	}
 	
-	public Post(String subject, User writer, String contents) {
+	public Post(String subject, UserAccount writer, String contents) {
 		super();
 		this.subject = subject;
 		this.contents = contents;

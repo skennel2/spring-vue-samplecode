@@ -14,12 +14,12 @@ public class Comment extends EntityBase {
 	private Post post;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private User writer;
+	private UserAccount writer;
 
 	@Lob
 	private String contents;
 
-	public Comment(Post post, User writer, String contents) {
+	public Comment(Post post, UserAccount writer, String contents) {
 		super();
 		this.post = post;
 		this.writer = writer;
